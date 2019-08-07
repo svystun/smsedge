@@ -71,16 +71,13 @@
                 },
                 columns: [
                     {
-                        data:'day',
-                        name:'day'
+                        data:'agg_date'
                     },
                     {
-                        data:'success',
-                        name:'success'
+                        data:'success'
                     },
                     {
-                        data:'failed',
-                        name:'failed'
+                        data:'failed'
                     }
                 ]
             });

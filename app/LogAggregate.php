@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\DB;
 class LogAggregate extends Model
 {
     protected $table = 'send_log_aggregated';
-    protected $fillable = ['agg_id', 'usr_id', 'cnt_id', 'agg_success',	'agg_date'];
-    const CREATED_AT = 'agg_date';
+    protected $fillable = ['agg_date', 'cnt_id', 'usr_id', 'success', 'failed'];
 
     /**
      * @param $query
@@ -17,10 +16,7 @@ class LogAggregate extends Model
      */
     function scopeGetData($query, Request $request)
     {
-        $query->select(DB::raw('DATE(agg_date) as day'),
-            DB::raw("SUM(CASE WHEN agg_success = '1' THEN 1 ELSE 0 END) as success"),
-            DB::raw("SUM(CASE WHEN agg_success = '0' THEN 1 ELSE 0 END) as failed")
-        );
+        $query->select('agg_date', DB::raw('SUM(success) as success'), DB::raw('SUM(failed) as failed'));
         if (!empty($request->from_date) && !empty($request->to_date)) {
             $query->whereDate('agg_date', '>=', $request->from_date)
                 ->whereDate('agg_date', '<=', $request->to_date);
@@ -33,6 +29,6 @@ class LogAggregate extends Model
         if (!empty($request->user_id)) {
             $query->where('usr_id', $request->user_id);
         }
-        return $query->groupBy('day');
+        return $query->groupBy('agg_date');
     }
 }
