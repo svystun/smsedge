@@ -14,8 +14,8 @@ class AddForeignKeysToSendLogTable extends Migration {
 	{
 		Schema::table('send_log', function(Blueprint $table)
 		{
-			$table->foreign('usr_id', 'send_log_ibfk_1')->references('usr_id')->on('users')->onUpdate('RESTRICT')->onDelete('NO ACTION');
-			$table->foreign('num_id', 'send_log_ibfk_2')->references('num_id')->on('numbers')->onUpdate('RESTRICT')->onDelete('NO ACTION');
+			$table->foreign('usr_id', 'send_log_ibfk_1')->references('usr_id')->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('num_id', 'send_log_ibfk_2')->references('num_id')->on('numbers')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 		});
 	}
 
