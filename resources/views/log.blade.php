@@ -11,6 +11,7 @@
                     <option value="100">100 records/day</option>
                     <option value="200">200 records/day</option>
                     <option value="500">500 records/day</option>
+                    <option value="1000">1000 records/day</option>
                 </select>
             </div>
         </div>
@@ -26,7 +27,6 @@
         </div>
         <div class="col-md-4">
             <button type="button" name="generate" id="generate" class="btn btn-primary">Generate</button>
-            <button type="button" name="aggregate" id="aggregate" class="btn btn-danger">Send to aggregator</button>
         </div>
     </div>
     <br />
@@ -63,24 +63,19 @@
                 },
                 columns: [
                     {
-                        data:'usr_id',
-                        name:'usr_id'
+                        data:'usr_id'
                     },
                     {
-                        data:'num_id',
-                        name:'num_id'
+                        data:'num_id'
                     },
                     {
-                        data:'log_message',
-                        name:'log_message'
+                        data:'log_message'
                     },
                     {
-                        data:'log_success',
-                        name:'log_success'
+                        data:'log_success'
                     },
                     {
-                        data:'log_created',
-                        name:'log_created'
+                        data:'log_created'
                     }
                 ]
             });
@@ -94,20 +89,6 @@
             if (from_date !== '' &&  to_date !== '') {
                 $('#order_table').DataTable().destroy();
                 load_data(from_date, to_date, records, 'generate');
-            }
-            else
-            {
-                alert('Both Date is required');
-            }
-        });
-
-        $('#aggregate').click(function() {
-            let from_date = $('#from_date').val();
-            let to_date = $('#to_date').val();
-            let records = $('#records').val();
-            if (from_date !== '' &&  to_date !== '') {
-                $('#order_table').DataTable().destroy();
-                load_data(from_date, to_date, records, 'aggregate');
             }
             else
             {
