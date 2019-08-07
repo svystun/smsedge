@@ -14,8 +14,8 @@ class AddForeignKeysToSendLogAggregatedTable extends Migration {
 	{
 		Schema::table('send_log_aggregated', function(Blueprint $table)
 		{
-			$table->foreign('cnt_id', 'send_log_aggregated_ibfk_2')->references('cnt_id')->on('countries')->onUpdate('RESTRICT')->onDelete('NO ACTION');
-			$table->foreign('usr_id', 'send_log_aggregated_ibfk_3')->references('usr_id')->on('users')->onUpdate('RESTRICT')->onDelete('NO ACTION');
+			$table->foreign('cnt_id', 'send_log_aggregated_ibfk_2')->references('cnt_id')->on('countries')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('usr_id', 'send_log_aggregated_ibfk_3')->references('usr_id')->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 		});
 	}
 

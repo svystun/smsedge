@@ -14,7 +14,7 @@ class AddForeignKeysToNumbersTable extends Migration {
 	{
 		Schema::table('numbers', function(Blueprint $table)
 		{
-			$table->foreign('cnt_id', 'numbers_ibfk_1')->references('cnt_id')->on('countries')->onUpdate('RESTRICT')->onDelete('NO ACTION');
+			$table->foreign('cnt_id', 'numbers_ibfk_1')->references('cnt_id')->on('countries')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 		});
 	}
 
