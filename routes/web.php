@@ -15,4 +15,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('log-aggregated', 'LogAggregatedController@index')->name('log-aggregated.index');
-Route::get('log', 'LogController@index')->name('log.index');
