@@ -17,12 +17,6 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white">
-            <div class="container">
-                <a class="navbar-brand" href="/log">Log</a>
-                <a class="navbar-brand" href="/log-aggregated">Log_aggregated</a>
-            </div>
-        </nav>
         <main>
             @yield('content')
         </main>
