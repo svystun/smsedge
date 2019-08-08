@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\Aggregate::class,
+        Commands\Aggregate2::class,
     ];
 
     /**
