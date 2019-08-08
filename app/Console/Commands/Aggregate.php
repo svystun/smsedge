@@ -57,11 +57,11 @@ class Aggregate extends Command
             LogAggregate::insertUsing(['agg_date', 'cnt_id', 'usr_id', 'success', 'failed'], $query);
 
             // Delete selected data
-            if ($date) {
-                LogGlobal::whereDate('log_created', $date)->delete();
-            } else {
-                LogGlobal::delete();
-            }
+//            if ($date) {
+//                LogGlobal::whereDate('log_created', $date)->delete();
+//            } else {
+//                LogGlobal::delete();
+//            }
 
             DB::commit();
             $message = "Data was successfully imported! For: ".$date."\n";
